@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Happy Ride Sharing">
+ <meta name="keywords" content="Car ">
+  <meta name="author" content="Mad 316">
+    <title>LULU Rides | Welcome</title>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div id="branding">
+          <h1><span class="highlight">LULU</span> Ride Sharing</h1>
+        </div>
+        <nav>
+          <ul>
+            <li class="current"><a href="index.html">Home</a></li>
+            <li><a href="about.html">Log In</a></li>
+            <li><a href="services.html">Sign Up</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+<body>
+    <div class="appName">
+        <h1>Offer Ride</h1>
+    </div>
+
+    <!--<div class="postedAlert">You are now registered!</div>-->
+
+    <div id="postingForm">
+
+        <form class="postingForm" action="Offerservlet" method="post">
+           <label for="from">from</label><br>
+           <input type="text" id="from" name="from" placeholder=" Enter City"><br>
+
+            <label for="destination">Destination</label><br>
+            <input type="text" id="destination" name="to" placeholder="Destination  City"><br>
+
+            <label for="Pickup location">Pickup location</label><br>
+            <input type="text" id="Pickup location" name="pickup" placeholder=""><br>
+
+            <label for="date">Date of Journey</label><br>
+            <input type="text" id="Date of Journey" name="date" placeholder="date">
+            <br>
+
+
+
+            <label for="departureTime">Departure time</label><br>
+            <input type="text" id="departureTime" name="time" placeholder=" Enter time"><br>
+
+
+
+
+            <label for="seats">Seats available</label><br>
+            <input type="text" id="seats" name="seats" placeholder="Enter no of Seats"><br>
+
+            <label class="Car registration number" for="Car registration number">Car registration number</label><br>
+            <input type="text" id="Car registration number" name="carno" class="Car registration number" placeholder="Enter car Registration number"><br>
+
+
+
+             <input type="submit" class="button" value="Submit">
+            <!--<input type="submit" class="button" value="Submit">
+
+            <!-- <script>
+                var input = document.getElementById("myInput");
+                input.addEventListener("keyup", function(event) {
+                    if (event.keyCode === 13) {
+                        event.preventDefault();
+                        document.getElementById("myBtn").click();
+                    }
+                });
+
+            </script>-->
+        </form>
+
+
+    </div>
+
+   <!-- <div class="row">
+        <div class="post">
+            <div>
+                <img src="circleProfile.png" alt="User photo">
+                <div class="name">John L. Doe</div>
+                <div>Destination: <span class="postInfo">City Name</span></div>
+                <div>Location: <span class="postInfo">Walmart</span></div>
+                <div>Date: <span class="postInfo">2/21/2019</span></div>
+                <table>
+                    <tr>
+                        <th>Departure</th>
+                        <th>Arrival</th>
+                        <th>Return</th>
+                        <th>Seats</th>
+                    </tr>
+
+                    <tr>
+                        <td>5:00 PM</td>
+                        <td>6:00 PM</td>
+                        <td>9:00 PM</td>
+                        <td>4</td>
+                    </tr>
+                </table>
+
+                <div>
+                    <p>Email: jd@wsc.edu <span class="postInfo">(712) 987-6543</span>
+                        <p></p>
+                </div>
+                <div class="description">
+                    <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc finibus vestibulum lectus in convallis. Sed id mauris tempor, pharetra tortor eu, suscipit mauris. Sed consectetur mauris orci, scelerisque congue lectus venenatis egestas. Integer id sed.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div> -->
+
+    <div class="feedContainer" id="feed">
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
