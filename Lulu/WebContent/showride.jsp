@@ -1,3 +1,10 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="com.Dbcon"%>
+<%@page import="java.sql.Connection"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+ 
 <!DOCTYPE html>
 <html>
   <head>
@@ -33,7 +40,7 @@
 
     <div id="postingForm">
 
-        <form class="postingForm">
+     <!--   <form >
            <label for="from">from</label><br>
            <input type="text" id="from" name="from" placeholder=" Enter City"><br>
 
@@ -73,53 +80,39 @@
                     }
                 });
 
-            </script>-->
-        </form>
+            </script>
+        </form>-->
+        
 
 
     </div>
 
-   <!-- <div class="row">
-        <div class="post">
-            <div>
-                <img src="circleProfile.png" alt="User photo">
-                <div class="name">John L. Doe</div>
-                <div>Destination: <span class="postInfo">City Name</span></div>
-                <div>Location: <span class="postInfo">Walmart</span></div>
-                <div>Date: <span class="postInfo">2/21/2019</span></div>
-                <table>
-                    <tr>
-                        <th>Departure</th>
-                        <th>Arrival</th>
-                        <th>Return</th>
-                        <th>Seats</th>
-                    </tr>
-
-                    <tr>
-                        <td>5:00 PM</td>
-                        <td>6:00 PM</td>
-                        <td>9:00 PM</td>
-                        <td>4</td>
-                    </tr>
-                </table>
-
-                <div>
-                    <p>Email: jd@wsc.edu <span class="postInfo">(712) 987-6543</span>
-                        <p></p>
-                </div>
-                <div class="description">
-                    <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc finibus vestibulum lectus in convallis. Sed id mauris tempor, pharetra tortor eu, suscipit mauris. Sed consectetur mauris orci, scelerisque congue lectus venenatis egestas. Integer id sed.
-                    </p>
-                </div>
-            </div>
-
-        </div>
-
-    </div> -->
+  
 
     <div class="feedContainer" id="feed">
+      
+       
+        <table border="1">
+   
+    <thead align="center"><tr><td>Starting City</td><td>Destination</td><td>Pick-Up Location</td><td>date</td><td>Departure </td><td>Seats Available</td><td>Registration Num</td><td>Seats Required</td><td>confirm</td></tr></thead>
+    <%
+    Connection c=Dbcon.datacon();
+    PreparedStatement p=c.prepareStatement("select * from ride where frm=? and too=?");
+    p.setString(1, request.getParameter("from"));
+    p.setString(2, request.getParameter("to"));
+    ResultSet rs=p.executeQuery();
+    int i=1;
+    while(rs.next())
+    {
+    	%>
+    	<form action="one.jsp" method="post">
+    	<tr align="center"><td><%=rs.getString(1) %></td><td><%=rs.getString(2) %></td><td><%=rs.getString(3) %></td><td><%=rs.getString(4) %></td><td><%=rs.getString(5) %></td><td><%=rs.getInt(6) %></td><td><input type="text" value="<%=rs.getString(7)%>"> </td><td><input type="text" placeholder="No Of Seats" name="numse>"></td><td><input type="hidden" name="reg" value="<%=rs.getString(7)%>"></td><td><button type="submit" id="<%=rs.getString(7)%>">Confirm Seats</button></td></tr>
+    	<% %></form><%
+    	i++;
+    }
+    
+    	%></table>
     </div>
     <script src="index.js"></script>
 </body>
-
 </html>
