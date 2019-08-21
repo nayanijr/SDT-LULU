@@ -96,6 +96,7 @@
    
     <thead align="center"><tr><td>Starting City</td><td>Destination</td><td>Pick-Up Location</td><td>date</td><td>Departure </td><td>Seats Available</td><td>Registration Num</td><td>Seats Required</td><td>confirm</td></tr></thead>
     <%
+   // HttpSession session =request.getSession();
     Connection c=Dbcon.datacon();
     PreparedStatement p=c.prepareStatement("select * from ride where frm=? and too=?");
     p.setString(1, request.getParameter("from"));
@@ -106,7 +107,7 @@
     {
     	%>
     	<form action="one.jsp" method="post">
-    	<tr align="center"><td><%=rs.getString(1) %></td><td><%=rs.getString(2) %></td><td><%=rs.getString(3) %></td><td><%=rs.getString(4) %></td><td><%=rs.getString(5) %></td><td><%=rs.getInt(6) %></td><td><input type="text" value="<%=rs.getString(7)%>"> </td><td><input type="text" placeholder="No Of Seats" name="numse>"></td><td><input type="hidden" name="reg" value="<%=rs.getString(7)%>"></td><td><button type="submit" id="<%=rs.getString(7)%>">Confirm Seats</button></td></tr>
+    	<tr align="center"><td><%=rs.getString(1) %></td><td><%=rs.getString(2) %></td><td><%=rs.getString(3) %></td><td><%=rs.getString(4) %></td><td><%=rs.getString(5) %></td><td><%=rs.getInt(6) %></td><td><%=rs.getString(7)%> </td><td><input type="text" placeholder="No Of Seats" size="10" name="numse"></td><td><button type="submit" onclick="" id="<%=rs.getString(7)%>">Confirm Seats</button></td></tr>
     	<% %></form><%
     	i++;
     }
